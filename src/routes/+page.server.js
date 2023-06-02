@@ -11,6 +11,7 @@ export async function load({}) {
 export const actions = {
   upload: async ({ request }) => {
     const data = await request.formData();
+    const title = data.get("title");
 
     // Loop through each file in the formData
     for (const file of data.getAll("file")) {
@@ -18,7 +19,7 @@ export const actions = {
 
       const command = new PutObjectCommand({
         Bucket: "izacbucket",
-        Key: file.name,
+        Key: title + "---" + file.name,
         Body: fileContent,
       });
 
