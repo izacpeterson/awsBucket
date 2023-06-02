@@ -1,11 +1,13 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import dotenv from "dotenv";
+dotenv.config();
 
 // AWS S3 bucket details
 const client = new S3Client({
   region: "us-east-1",
   credentials: {
-    accessKeyId: "AKIA6KROKWA5OYBSVYTN",
-    secretAccessKey: "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",
+    accessKeyId: process.env.AWS_ID,
+    secretAccessKey: process.env.AWS_KEY,
   },
 });
 
