@@ -19,7 +19,7 @@ export const actions = {
 
       const command = new PutObjectCommand({
         Bucket: "izacbucket",
-        Key: title + "---" + file.name,
+        Key: file.name,
         Body: fileContent,
       });
 
